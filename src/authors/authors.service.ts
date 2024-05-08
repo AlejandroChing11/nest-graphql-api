@@ -1,6 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { CreateAuthorInput } from './dto/create-author.input';
 import { UpdateAuthorInput } from './dto/update-author.input';
+import { Author } from './entities/author.entity';
 
 @Injectable()
 export class AuthorsService {
@@ -8,8 +9,12 @@ export class AuthorsService {
     return 'This action adds a new author';
   }
 
-  findAll() {
-    return `This action returns all authors`;
+  findAll(): Author[] {
+    return [
+      { id: 1, name: 'Author 1' },
+      { id: 2, name: 'Author 2' },
+      { id: 3, name: 'Author 3' },
+    ]
   }
 
   findOne(id: number) {
