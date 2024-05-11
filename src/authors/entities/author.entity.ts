@@ -1,11 +1,11 @@
 import { ObjectType, Field, Int } from '@nestjs/graphql';
-import { Column, Entity, PrimaryColumn } from 'typeorm';
+import { Column, Entity, PrimaryColumn, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 @ObjectType()
 export class Author {
 
-  @PrimaryColumn()
+  @PrimaryGeneratedColumn()
   @Field(() => Int)
   id: number;
 

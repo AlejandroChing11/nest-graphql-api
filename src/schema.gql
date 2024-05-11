@@ -17,3 +17,12 @@ type Query {
   posts: [Post!]!
   authors: [Author!]!
 }
+
+type Mutation {
+  createPost(postInput: CreatePostInput!): Post!
+}
+
+input CreatePostInput {
+  title: String!
+  content: String!
+}
