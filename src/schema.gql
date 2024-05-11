@@ -16,22 +16,4 @@ type Author {
 type Query {
   posts: [Post!]!
   authors: [Author!]!
-  author(id: Int!): Author!
-}
-
-type Mutation {
-  createAuthor(createAuthorInput: CreateAuthorInput!): Author!
-  updateAuthor(updateAuthorInput: UpdateAuthorInput!): Author!
-  removeAuthor(id: Int!): Author!
-}
-
-input CreateAuthorInput {
-  """Example field (placeholder)"""
-  exampleField: Int!
-}
-
-input UpdateAuthorInput {
-  """Example field (placeholder)"""
-  exampleField: Int
-  id: Int!
 }
