@@ -9,17 +9,22 @@ type Post {
 }
 
 type Author {
-  id: Int!
+  id: String!
   name: String!
 }
 
 type Query {
-  posts: [Post!]!
   authors: [Author!]!
+  posts: [Post!]!
 }
 
 type Mutation {
+  createAuthor(createAuthorInput: CreateAuthorInput!): Author!
   createPost(postInput: CreatePostInput!): Post!
+}
+
+input CreateAuthorInput {
+  name: String!
 }
 
 input CreatePostInput {

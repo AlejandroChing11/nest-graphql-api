@@ -3,8 +3,6 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
 import { PostsModule } from './posts/posts.module';
 import { AuthorsModule } from './authors/authors.module';
 
@@ -15,6 +13,7 @@ import { join } from 'path';
     GraphQLModule.forRoot<ApolloDriverConfig>({
       driver: ApolloDriver,
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
+      include: [PostsModule, AuthorsModule],
     }),
     TypeOrmModule.forRoot({
       type: 'sqlite',
@@ -25,7 +24,7 @@ import { join } from 'path';
     PostsModule,
     AuthorsModule
   ],
-  controllers: [AppController],
-  providers: [AppService],
+  controllers: [],
+  providers: [],
 })
 export class AppModule { }

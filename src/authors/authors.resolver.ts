@@ -18,6 +18,11 @@ export class AuthorsResolver {
     return this.authorsService.findAll();
   }
 
+  @Mutation((returns) => Author)
+  createAuthor(@Args('createAuthorInput') createAuthorInput: CreateAuthorInput) {
+    return this.authorsService.createAuthor(createAuthorInput);
+  }
+
   // @Query(() => Author, { name: 'author' })
   // findOne(@Args('id', { type: () => Int }) id: number) {
   //   return this.authorsService.findOne(id);

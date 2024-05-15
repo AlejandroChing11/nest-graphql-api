@@ -13,8 +13,9 @@ export class AuthorsService {
     private authorRepository: Repository<Author>,
   ) { }
 
-  create(createAuthorInput: CreateAuthorInput) {
-    return 'This action adds a new author';
+  createAuthor(createAuthorInput: CreateAuthorInput) {
+    const newAuthor = this.authorRepository.create(createAuthorInput);
+    return this.authorRepository.save(newAuthor);
   }
 
   async findAll(): Promise<Author[]> {
