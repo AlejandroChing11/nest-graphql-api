@@ -21,6 +21,7 @@ type Query {
 type Mutation {
   createAuthor(createAuthorInput: CreateAuthorInput!): Author!
   createPost(postInput: CreatePostInput!): Post!
+  deleteAllPost: Boolean!
 }
 
 input CreateAuthorInput {
@@ -29,5 +30,5 @@ input CreateAuthorInput {
 
 input CreatePostInput {
   title: String!
-  content: String!
+  content: String
 }

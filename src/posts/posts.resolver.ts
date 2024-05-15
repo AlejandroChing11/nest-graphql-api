@@ -20,4 +20,9 @@ export class PostsResolver {
     return this.postsService.createPost(postInput);
   }
 
+  @Mutation(() => Boolean)
+  async deleteAllPost(): Promise<boolean> {
+    return this.postsService.deleteAllPost();
+  }
+
 }

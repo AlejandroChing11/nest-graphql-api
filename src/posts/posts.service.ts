@@ -28,4 +28,9 @@ export class PostsService {
     return this.postRepository.save(newPost);
   }
 
+  deleteAllPost(): boolean {
+    this.postRepository.clear();
+    return true;
+  }
+
 }
