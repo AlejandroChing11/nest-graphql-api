@@ -1,9 +1,9 @@
 import { Field, InputType } from "@nestjs/graphql";
-import { IsNotEmpty, MaxLength, MinLength } from "class-validator";
+import { IsNotEmpty, IsUUID, MaxLength, MinLength } from "class-validator";
 
 @InputType()
 export class CreatePostInput {
-  @MaxLength(10, { message: 'Title is too long' })
+  @MaxLength(20, { message: 'Title is too long' })
   @MinLength(5, { message: 'Title is too short' })
   @IsNotEmpty()
   @Field()
@@ -13,5 +13,8 @@ export class CreatePostInput {
   @Field({ nullable: true })
   content?: string;
 
+  @IsUUID()
+  @Field()
+  authorId: string;
 
 }

@@ -2,20 +2,25 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Author {
+  id: String!
+  name: String!
+  posts: [Post!]
+}
+
 type Post {
   id: Int!
   title: String!
   content: String
-}
-
-type Author {
-  id: String!
-  name: String!
+  authorId: String!
+  author: Author!
 }
 
 type Query {
   authors: [Author!]!
+  author(id: Int!): Author!
   posts: [Post!]!
+  post(id: Int!): Post!
 }
 
 type Mutation {
@@ -31,4 +36,5 @@ input CreateAuthorInput {
 input CreatePostInput {
   title: String!
   content: String
+  authorId: String!
 }
